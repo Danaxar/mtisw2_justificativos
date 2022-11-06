@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface JustificativoRepository extends JpaRepository<JustificativoEntity, Long> {
+public interface JustificativoRepository extends JpaRepository<JustificativoEntity, Integer> {
     ArrayList<JustificativoEntity> findByFechaAndRut(String fecha, String rut);
 }

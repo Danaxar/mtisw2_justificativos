@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JustificativoMicroserviceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(JustificativoMicroserviceApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(JustificativoMicroserviceApplication.class, args);
+		System.out.println("Running.");
+	}
 
 }

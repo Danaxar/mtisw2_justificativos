@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class JustificativoService{
+public class JustificativoService {
     @Autowired
     JustificativoRepository justificativoRepository;
 

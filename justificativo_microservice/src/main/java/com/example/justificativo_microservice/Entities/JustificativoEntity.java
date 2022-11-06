@@ -1,7 +1,5 @@
 package com.example.justificativo_microservice.Entities;
-
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
