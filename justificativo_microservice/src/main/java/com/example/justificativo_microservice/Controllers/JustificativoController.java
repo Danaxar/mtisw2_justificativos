@@ -21,6 +21,16 @@ public class JustificativoController {
         return ResponseEntity.ok(justificativos);
     }
 
+    @GetMapping("/get-by-rut-and-fecha/{rut}/{fecha}")
+    public ResponseEntity<Boolean> getByRutAndFecha(@PathVariable("rut") String rut, @PathVariable("fecha") String fecha){
+        Boolean resp = justificativoService.existeJustificativo(justificativoService.reformatFecha(fecha), rut);
+        if(resp){
+            return ResponseEntity.ok(resp);    
+        }
+        return ResponseEntity.ok(resp); // false
+        
+    }
+
     @PostMapping
     public ResponseEntity<JustificativoEntity> agregarJustificativo(@RequestBody JustificativoEntity justificativo){
         try {
