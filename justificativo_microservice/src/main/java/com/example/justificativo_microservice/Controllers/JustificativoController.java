@@ -22,10 +22,12 @@ public class JustificativoController {
     }
 
     @GetMapping("/get-by-rut-and-fecha/{rut}/{fecha}")
-    public ResponseEntity<Boolean> getByRutAndFecha(@PathVariable("rut") String rut, @PathVariable("fecha") String fecha){
-        Boolean resp = justificativoService.existeJustificativo(justificativoService.reformatFecha(fecha), rut);
-        if(resp){
-            return ResponseEntity.ok(resp);    
+    public ResponseEntity<ArrayList<JustificativoEntity>> getByRutAndFecha(@PathVariable("rut") String rut, @PathVariable("fecha") String fecha){
+        //System.out.println("Justificativo controller: getByRutAndFecha");
+        ArrayList<JustificativoEntity> resp = justificativoService.getByRutAndFecha(justificativoService.reformatFecha(fecha), rut);
+        if(resp.isEmpty()){
+            //System.out.println("Justificativo controller: No se encuentran datos de justificativos.");
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(resp); // false
         

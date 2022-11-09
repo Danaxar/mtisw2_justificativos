@@ -20,13 +20,9 @@ public class JustificativoService {
         return justificativoRepository.save(justificativo);
     }
 
-    public boolean existeJustificativo(String fecha, String rut){
-        ArrayList<JustificativoEntity> justificativo = justificativoRepository.findByFechaAndRut(fecha, rut);
-        if(justificativo.size() == 1){
-            return true;
-        }else{
-            return false;
-        }
+    public ArrayList<JustificativoEntity> getByRutAndFecha(String fecha, String rut){
+        ArrayList<JustificativoEntity> justificativo = justificativoRepository.findByFechaAndRut(rut, fecha);
+        return justificativo;
     }
 
     public String reformatFecha(String fecha){
