@@ -3,8 +3,8 @@ spring:
     name: justificativo-microservice
   datasource:
     # url: jdbc:mysql://localhost:3306/mtisw2_justificativos
-    # password: danielusach
     # username: root
+    # password: danielusach
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
