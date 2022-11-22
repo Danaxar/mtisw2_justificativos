@@ -2,16 +2,21 @@ spring:
   application:
     name: justificativo-microservice
   datasource:
-    url: jdbc:mysql://localhost:3306/mtisw2_justificativos
-    username: root
-    password: danielusach
-    # url: ${DB_URL}
-    # username: ${DB_USERNAME}
-    # password: ${DB_PASSWORD}
+    # url: jdbc:mysql://localhost:3306/mtisw2_justificativos
+    # username: root
+    # password: danielusach
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: create
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081/
+      failt-fast: true
+      retry:
+        maxAttempts: 200
+        maxInterval: 10000
+      # uri: http://localhost:8081/
+      uri: http://config-server:8081

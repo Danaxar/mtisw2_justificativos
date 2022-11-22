@@ -34,4 +34,17 @@ public class JustificativoService {
         return (divisiones[0] + "-" + divisiones[1] + "-" + divisiones[2]);
 
     }
+
+    public boolean existeJustificativo(String fecha, String rut){
+        String fecha2 = this.reformatFecha(fecha);
+        ArrayList<JustificativoEntity> justificativo = (ArrayList<JustificativoEntity>) justificativoRepository.findByFechaAndRut(fecha2, rut);
+        System.out.println("justificativo size: " + Integer.toString(justificativo.size()));
+        if(justificativo.size() >= 1){
+            System.out.println("JustificativoService: Existe justificativo: size = 1");
+            return true;
+        }else{
+            System.out.println("JustificativoService: Existe justificativo: size != 1");
+            return false;
+        }
+    }
 }
